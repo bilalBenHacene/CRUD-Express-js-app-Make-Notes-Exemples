@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Notes</title>
+  </head>
+
+  <body>
+    <div>
+        <h1 style="display: inline-block;margin-right: 2rem;">Notes</h1>
+        <a href="/new">+ Add Note</a>
+
+        <form action="/" method="get">
+          <input type="text" name="searchInput" id="" style="display: inline-block;">
+          <button type="submit">search</button>
+        </form>
+    </div>
+    
+    <ul>
+      <% for (let note of notes){%>
+      <li>
+        <h2><%= note.title %></h2>
+        <span> <%= new Date(note.date) %> </span>
+        <p><%= note.content.substring(0,100) %>...</p>
+        <a href="/note/<%= note.id %>">View More</a>
+      </li>
+      <%}%>
+    </ul>
+  </body>
+</html>
